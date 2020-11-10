@@ -48,11 +48,9 @@ for line in lines:
             warning_text = warning_text + text
 
 #如果日志出现报警就发送钉钉提醒
-for line in lines:
-    if time1 in line:
-        if "error" in line:
-            print(error_text)
-            send_msg(error_text, abc)
-        if "warning" in line:
-            print(warning_text)
-            send_msg(warning_text, abc)
+if len(error_text) > 25:
+    print(error_text)
+    send_msg(error_text, abc)
+if len(warning_text) > 25:
+    print(warning_text)
+    send_msg(warning_text, abc)
