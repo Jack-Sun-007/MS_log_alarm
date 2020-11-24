@@ -9,6 +9,22 @@ import time
 #获取前1小时的日期和时间
 time1= (datetime.datetime.now()+datetime.timedelta(seconds=-3600)).strftime("%Y-%m-%d %H:")
 
+#将log文件按时间进行排序
+def get_log_list(file_path):
+    dir_list = os.listdir(file_path)
+    log_list = []
+    if not dir_list:
+        return
+    else:
+        # os.path.getmtime() 函数是获取文件最后修改时间
+        # os.path.getctime() 函数是获取文件最后创建时间
+        dir_list = sorted(dir_list,  key=lambda x: os.path.getmtime(os.path.join(file_path, x)),reverse = True)
+        for file in dir_list:
+            if "Thermo Exactive--" in file:
+                log_list.append(file)
+        log_path = file_path + log_list[0]
+        return log_path
+
 #定义发送钉钉报警的函数
 def send_msg(text,mobile):
     url = 'https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
@@ -31,7 +47,8 @@ def send_msg(text,mobile):
 abc = "\"130xxxxxxxx\""
 
 #打开log文件，获取每行日志信息至lines，并关闭log文件
-with open('C:\\Xcalibur\\system\\Exactive\\log\\Thermo Exactive--2020-09-01--12-48-15.log', 'r', encoding='utf_8_sig') as fp:
+p = get_log_list("C:\\Xcalibur\\system\\Exactive\\log\\")
+with open(p, 'r', encoding='utf_8_sig') as fp:
     lines = fp.readlines()
 fp.close()
 
