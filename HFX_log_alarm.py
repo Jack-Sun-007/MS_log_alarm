@@ -5,6 +5,7 @@ import datetime
 import requests
 import json
 import time
+import os
 
 #获取前1小时的日期和时间
 time1= (datetime.datetime.now()+datetime.timedelta(seconds=-3600)).strftime("%Y-%m-%d %H:")
