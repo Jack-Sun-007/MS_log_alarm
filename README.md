@@ -4,6 +4,7 @@ use python to scan warning and error information every hours from mass spectrum 
 ## Mass Spectrum Type 目前可用的质谱类型
 Thermo Q-Exactive  
 Thermo Q-Exactive HF-X  
+Thermo Orbitrap Exploris 480  
 SCIEX Triple Quad 6500+
 ## Notice
 I AM A NEWBEE
