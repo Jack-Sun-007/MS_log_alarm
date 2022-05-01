@@ -6,5 +6,8 @@ Thermo Q-Exactive
 Thermo Q-Exactive HF-X  
 Thermo Orbitrap Exploris 480  
 SCIEX Triple Quad 6500+
+## Update
+Combining .bat and .vbs to achieve silent operation in the background  
+结合.bat和.vbs实现后台静默运行，无弹框
 ## Notice
 I AM A NEWBEE
